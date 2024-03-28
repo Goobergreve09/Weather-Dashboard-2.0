@@ -11,9 +11,10 @@ I've upgrade an older weather dashboard I created with this new weather dashboar
 ## Table of Contents
 
 1. [Description](#description)   
-2. [How to Use](#usage)  
-3. [Licensing](#license)  
-4. [Contact Me](#questions)
+2. [How to Use](#usage)
+3. [Deployment](#deployment)
+4. [Licensing](#license)  
+5. [Contact Me](#questions)
 
 
 
@@ -21,15 +22,23 @@ I've upgrade an older weather dashboard I created with this new weather dashboar
 
 To use this application simply type in the city you are searching for into the user input bar. This will brng up the current forecast of the desired city, the 5 day forecast, and also save the searched city into recent searches using localStorage. 
 
-*Below are real time screenshots of application use.*
+**Full-Screen (Light-Mode)**
 
-![cleveland1](https://github.com/Goobergreve09/weather-dashboard-api/assets/143923830/2e2d2e20-2e30-48c4-9ce8-be08b1b374a3)
+![weather1](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/6d70963b-39c4-46d2-a2c8-2b3e1d78089d)
 
-![cleveland2](https://github.com/Goobergreve09/weather-dashboard-api/assets/143923830/5b382259-7ce6-49cc-a499-33f938e4b3e4)
+**Full-Screen (Dark-Mode)**
 
-Click 'Deployment Link' to view deployment:
+![weather 3](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/e04f57eb-d20f-4583-a624-0ee9a9df173a)
 
-[Deployment Link](https://goobergreve09.github.io/weather-dashboard-api/)
+**Recent-Searches-Dropdown**
+
+![weather 2](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/94c2122b-e04d-441d-a9ae-df0a2a0d9088)
+
+## Deployment
+
+This site was deployed via Heroku, to view the deployed site click the link below
+
+[Weather Dashboard](https://weather-dashboard-greg.netlify.app/)
 
 ## Contributions
 
@@ -42,6 +51,10 @@ Special thanks to:
 * [Weather API](https://openweathermap.org/api)
 
 * [Dayjs Formatting](https://day.js.org/docs/en/display/format)
+
+* [React.js](https://react.dev/)
+
+* [Stack Overflow for UTC timezone conversion](stackoverflow.com)
 
 
 
