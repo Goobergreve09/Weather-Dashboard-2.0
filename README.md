@@ -37,6 +37,10 @@ To use this application simply type in the city you are searching for into the u
 
 ![weather 2](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/94c2122b-e04d-441d-a9ae-df0a2a0d9088)
 
+**Created for Responsiveness**
+
+![responsive](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/8525453a-8fec-4d69-bbde-d4d13811b408)
+
 ## Deployment
 
 This site was deployed via Heroku, to view the deployed site click the link below
