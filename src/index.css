@@ -24,12 +24,15 @@ body {
 }
 
 .light-mode {
-  background-color: #dee4e7;
+  background-color:#D1D1D1;
+
 }
 
 .light-mode .card {
-  background-color: white;
+  background-color: #F4F8F9;
   color: black; /* Adjust text color for better visibility */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 /* Additional styles */

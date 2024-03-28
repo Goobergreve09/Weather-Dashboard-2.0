@@ -19,6 +19,18 @@ import { LiaTemperatureHighSolid } from "react-icons/lia";
 import { WiHumidity, WiStrongWind } from "react-icons/wi";
 import { GiSunset, GiSunrise } from "react-icons/gi";
 
+import Sun from "../assets/images/sun.png";
+import Moon from "../assets/images/moon.png";
+import fewSun from "../assets/images/fewcloudsSun.png";
+import fewMoon from "../assets/images/fewcloudsMoon.png";
+import cloudsDay from '../assets/images/cloudDay.png'
+import cloudsNight from '../assets/images/cloudNight.png'
+import dayRain from '../assets/images/dayRain.png'
+import nightRain from '../assets/images/nightRain.png'
+import dayThunder from '../assets/images/dayThunder.png'
+import nightThunder from '../assets/images/nightThunder.png'
+
+
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [weatherData, setWeatherData] = useState(null);
@@ -72,8 +84,32 @@ const Home = () => {
   };
 
   const getWeatherIconUrl = (iconCode) => {
-    return `http://openweathermap.org/img/wn/${iconCode}.png`;
+    if (iconCode === "01d") {
+      return Sun; // Assuming Sun is the variable holding the custom image URL
+    } else if (iconCode === "01n") {
+      return Moon;
+    } else if (iconCode === "02d") {
+      return fewSun;
+    } else if (iconCode === "02n") {
+      return fewMoon;
+    } else if (iconCode === '03d' || iconCode === '04d') {
+      return cloudsDay;
+    } else if (iconCode === '03n' || iconCode === '04n') {
+      return cloudsNight;
+    } else if (iconCode === '09d' || iconCode === '10d') {
+      return dayRain
+    } else if (iconCode === '09n' || iconCode === '10n') {
+    return nightRain
+    }else if (iconCode === '11d') {
+      return dayThunder;
+    } else if (iconCode === '11n') {
+      return nightThunder;
+    
+    } else {
+      return `http://openweathermap.org/img/wn/${iconCode}.png`;
+    }
   };
+  
 
   const formatTime = (timestamp) => {
     const date = new Date(timestamp * 1000);
@@ -317,7 +353,10 @@ const Home = () => {
                 .filter((item, index) => index % 8 === 0) // Filter to get every 8th item
                 .map((forecast, index) => (
                   <Col key={index}>
-                    <Card className="mt-3 p-3" style={{ minWidth: "350px" }}>
+                    <Card
+                      className="mt-3 p-3"
+                      style={{ minWidth: "350px", minHeight: "318px" }}
+                    >
                       <Card.Body>
                         <Card.Header
                           style={{
@@ -332,7 +371,7 @@ const Home = () => {
                         <Row className="d-flex justify-content-center">
                           <Card.Img
                             src={getWeatherIconUrl(forecast.weather[0].icon)}
-                            style={{ width: "115px" }}
+                            style={{ width: "115px", paddingTop: "8px" }}
                           ></Card.Img>
                         </Row>
                         <p className="text-center" style={{ fontSize: "32px" }}>
