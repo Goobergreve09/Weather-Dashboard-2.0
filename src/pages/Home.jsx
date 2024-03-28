@@ -119,7 +119,7 @@ const Home = () => {
         mode === "dark" ? "dark-mode" : "light-mode"
       }`}
     >
-      <Card className="w-100 searchCard">
+      <Card className="w-100 searchCard mt-3">
         <Row className="mb-3 mt-3 w-100">
           <Col xs={12} sm={8}>
             <Form className="d-flex p-1" onSubmit={handleSubmit}>
