@@ -6,7 +6,7 @@
 ## Description
 I've upgraded an older weather dashboard I created with this new weather dashboard. This was created using react for a much more seamless and simple user experience. Headling the diffrences would be it's polished and clean UI.When you are done typing in a city just hit enter and your results will appear. You get the current time in that city whether it be yours or acrossed the globe, as well as current weather conditions including temperature to atmospheric pressure. That's not all, it also includes a future 5 day forecast of high and low temperatures. The responsiveness of React.js grid and flex component experience makes it easy on any user device. I've also added in a dark and light mode toggle for an enhanced user experience based on what they prefer. Once the city is searched it will save that into a drop down titled ' recent searches' storing a maximum of 5 cities.
 
-Vie the repository for the previous weather dashboard [here](
+View the repository for the previous weather dashboard [here](https://github.com/Goobergreve09/weather-dashboard-api)
 
 
   
