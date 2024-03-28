@@ -52,14 +52,13 @@ const Home = () => {
     setTempSearchTerm(""); // Clear the temporary value
     // Search term is updated in useEffect, so no need to handle it here
   };
-  
 
   const handleInputChange = (event) => {
     const { value } = event.target;
     setTempSearchTerm(value); // Update the temporary search term
   };
 
-const updateRecentSearches = (searchTerm) => {
+  const updateRecentSearches = (searchTerm) => {
     const updatedSearches = [
       searchTerm,
       ...recentSearches.filter((search) => search !== searchTerm),
@@ -116,67 +115,73 @@ const updateRecentSearches = (searchTerm) => {
   return (
     <Container
       fluid
-      className={`h-100 full-container ${mode === "dark" ? "dark-mode" : "light-mode"}`}
+      className={`h-100 full-container ${
+        mode === "dark" ? "dark-mode" : "light-mode"
+      }`}
     >
-<Card className="w-100 searchCard">
-  <Row className="mb-3 mt-3 w-100">
-    <Col xs={12} sm={8}>
-      <Form className="d-flex" onSubmit={handleSubmit}>
-        <InputGroup className="w-100">
-          <InputGroup.Text>
-            <MdSearch />
-          </InputGroup.Text>
-          <FormControl
-            type="search"
-            placeholder="Search for preferred City..."
-            aria-label="Search"
-            value={tempSearchTerm}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
-      </Form>
-    </Col>
-    <Col xs={6} sm={2}>
-      <DropdownButton
-        id="dropdown-basic-button"
-        title="Recent Searches"
-        className="ms-2"
-      >
-        {recentSearches.map((searchTerm, index) => (
-          <Dropdown.Item
-            key={index}
-            onClick={() => handleRecentSearchClick(searchTerm)}
+      <Card className="w-100 searchCard">
+        <Row className="mb-3 mt-3 w-100">
+          <Col xs={12} sm={8}>
+            <Form className="d-flex p-1" onSubmit={handleSubmit}>
+              <InputGroup className="w-100">
+                <InputGroup.Text>
+                  <MdSearch />
+                </InputGroup.Text>
+                <FormControl
+                  type="search"
+                  placeholder="Search for preferred City..."
+                  aria-label="Search"
+                  value={tempSearchTerm}
+                  onChange={handleInputChange}
+                />
+              </InputGroup>
+            </Form>
+          </Col>
+          <Col xs={6} sm={2}>
+            <DropdownButton
+              id="dropdown-basic-button"
+              title="Recent Searches"
+              className="ms-2 p-1"
+            >
+              {recentSearches.map((searchTerm, index) => (
+                <Dropdown.Item
+                  key={index}
+                  onClick={() => handleRecentSearchClick(searchTerm)}
+                >
+                  {searchTerm}
+                </Dropdown.Item>
+              ))}
+            </DropdownButton>
+          </Col>
+          <Col
+            xs={6}
+            sm={2}
+            className="d-flex justify-content-end align-items-center"
           >
-            {searchTerm}
-          </Dropdown.Item>
-        ))}
-      </DropdownButton>
-    </Col>
-    <Col xs={6} sm={2} className="d-flex justify-content-end align-items-center">
-      <FormCheck
-        type="switch"
-        id="custom-switch"
-        label={
-          mode === "light" ? (
-            <MdLightMode size={20} />
-          ) : (
-            <MdDarkMode size={20} style={{ color: "white" }} />
-          )
-        }
-        checked={mode === "dark"}
-        onChange={toggleMode}
-      />
-    </Col>
-  </Row>
-</Card>
+            <FormCheck
+              type="switch"
+              id="custom-switch"
+              label={
+                mode === "light" ? (
+                  <MdLightMode size={20} />
+                ) : (
+                  <MdDarkMode size={20} style={{ color: "white" }} />
+                )
+              }
+              checked={mode === "dark"}
+              onChange={toggleMode}
+            />
+          </Col>
+        </Row>
+      </Card>
 
       {weatherData && (
         <>
           <Row className="pt-2 justify-content-center">
-          <Col xs={12} md={6} lg={4} className="mb-3">
+            <Col xs={12} md={6} lg={4} className="mb-3">
               <Card
                 className={`h-100 mt-3 ${mode === "dark" ? "dark-card" : ""}`}
-                style={{ height: "300px",minWidth: '334px'  }}
+                style={{ height: "300px", minWidth: "334px" }}
               >
                 <Card.Body className="d-flex flex-column align-items-center justify-content-center">
                   <div className="d-flex align-items-center">
@@ -198,7 +203,7 @@ const updateRecentSearches = (searchTerm) => {
             <Col xs={12} sm={8} md={4} className="mb-3">
               <Card
                 className={`h-100 mt-3 ${mode === "dark" ? "dark-card" : ""}`}
-                style={{ height: "300px" , minWidth: '334px' }}
+                style={{ height: "300px", minWidth: "334px" }}
               >
                 <Card.Body className="d-flex flex-column justify-content-between p-0">
                   <div className="text-center">
@@ -288,7 +293,7 @@ const updateRecentSearches = (searchTerm) => {
             <Col xs={12} md={4} className="mb-3">
               <Card
                 className={`h-100 mt-3 ${mode === "dark" ? "dark-card" : ""}`}
-                style={{ height: "300px", minWidth: '334px' }}
+                style={{ height: "300px", minWidth: "334px" }}
               >
                 <Card.Body className="d-flex flex-column justify-content-center align-items-center clockText">
                   <Card.Title className="text-center clockText p-3">
@@ -312,7 +317,7 @@ const updateRecentSearches = (searchTerm) => {
                 .filter((item, index) => index % 8 === 0) // Filter to get every 8th item
                 .map((forecast, index) => (
                   <Col key={index}>
-                    <Card className = 'mt-3 p-3' style = {{minWidth:'350px'}}>
+                    <Card className="mt-3 p-3" style={{ minWidth: "350px" }}>
                       <Card.Body>
                         <Card.Header
                           style={{
@@ -325,11 +330,10 @@ const updateRecentSearches = (searchTerm) => {
                           {formatDate(forecast.dt)}
                         </Card.Header>
                         <Row className="d-flex justify-content-center">
-                        <Card.Img
-                          src={getWeatherIconUrl(forecast.weather[0].icon)}
-                          style={{ width: "115px" }}
-                         
-                        ></Card.Img>
+                          <Card.Img
+                            src={getWeatherIconUrl(forecast.weather[0].icon)}
+                            style={{ width: "115px" }}
+                          ></Card.Img>
                         </Row>
                         <p className="text-center" style={{ fontSize: "32px" }}>
                           {kelvinToFahrenheit(forecast.main.temp).toFixed()} °F
@@ -355,11 +359,21 @@ const updateRecentSearches = (searchTerm) => {
                   </Col>
                 ))}
           </Row>
-          <Row style={{ position: "absolute", bottom: "0",  right:"0" , fontSize:'16px', fontStyle:'italic', fontWeight:'200', marginRight: '10px'}}>
-            <Col >
-            <span className={`${mode === "dark" ? "dark-text" : ""}`}>
-  {weatherData.coord.lat}, {weatherData.coord.lon}
-</span>
+          <Row
+            style={{
+              position: "fixed",
+              bottom: "0",
+              right: "0",
+              fontSize: "16px",
+              fontStyle: "italic",
+              fontWeight: "200",
+              marginRight: "10px",
+            }}
+          >
+            <Col>
+              <span className={`${mode === "dark" ? "dark-text" : ""}`}>
+                {weatherData.coord.lat}, {weatherData.coord.lon}
+              </span>
               <CountryFlag
                 countryCode={weatherData.sys.country}
                 className="small-flag"
