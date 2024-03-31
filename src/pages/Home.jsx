@@ -165,7 +165,7 @@ const Home = () => {
                 </InputGroup.Text>
                 <FormControl
                   type="search"
-                  placeholder="Search for preferred City..."
+                  placeholder="Search by City [Orlando] OR City, State Code, Country Code [Orlando, Fl, US]"
                   aria-label="Search"
                   value={tempSearchTerm}
                   onChange={handleInputChange}
