@@ -26,15 +26,20 @@ To use this application simply type in the city you are searching for into the u
 
 **Full-Screen (Light-Mode)**
 
-![weather1](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/6d70963b-39c4-46d2-a2c8-2b3e1d78089d)
+
+![juneu](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/ee1d3e1c-e997-4184-bdfc-3f4f6197755b)
 
 **Full-Screen (Dark-Mode)**
 
-![weather 3](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/e04f57eb-d20f-4583-a624-0ee9a9df173a)
+![weatherr](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/ac0747d0-d228-40a0-8c22-3d2cbca66019)
 
 **Recent-Searches-Dropdown**
 
 ![weather 2](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/94c2122b-e04d-441d-a9ae-df0a2a0d9088)
+
+**Created for Responsiveness**
+
+![responsive](https://github.com/Goobergreve09/Weather-Dashboard-2.0/assets/143923830/8525453a-8fec-4d69-bbde-d4d13811b408)
 
 ## Deployment
 
