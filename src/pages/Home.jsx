@@ -12,7 +12,8 @@ import {
   DropdownButton,
 } from "react-bootstrap";
 import handleSearch from "../utils/handleSearch";
-import { CountryFlag } from "../utils/country";
+import { IoIosHelpCircle } from "react-icons/io";
+import { Tooltip } from "react-tooltip";
 
 import { MdDarkMode, MdLightMode, MdSearch } from "react-icons/md";
 import { LiaTemperatureHighSolid } from "react-icons/lia";
@@ -23,13 +24,12 @@ import Sun from "../assets/images/sun.png";
 import Moon from "../assets/images/moon.png";
 import fewSun from "../assets/images/fewcloudsSun.png";
 import fewMoon from "../assets/images/fewcloudsMoon.png";
-import cloudsDay from '../assets/images/cloudDay.png'
-import cloudsNight from '../assets/images/cloudNight.png'
-import dayRain from '../assets/images/dayRain.png'
-import nightRain from '../assets/images/nightRain.png'
-import dayThunder from '../assets/images/dayThunder.png'
-import nightThunder from '../assets/images/nightThunder.png'
-
+import cloudsDay from "../assets/images/cloudDay.png";
+import cloudsNight from "../assets/images/cloudNight.png";
+import dayRain from "../assets/images/dayRain.png";
+import nightRain from "../assets/images/nightRain.png";
+import dayThunder from "../assets/images/dayThunder.png";
+import nightThunder from "../assets/images/nightThunder.png";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -92,24 +92,22 @@ const Home = () => {
       return fewSun;
     } else if (iconCode === "02n") {
       return fewMoon;
-    } else if (iconCode === '03d' || iconCode === '04d') {
+    } else if (iconCode === "03d" || iconCode === "04d") {
       return cloudsDay;
-    } else if (iconCode === '03n' || iconCode === '04n') {
+    } else if (iconCode === "03n" || iconCode === "04n") {
       return cloudsNight;
-    } else if (iconCode === '09d' || iconCode === '10d') {
-      return dayRain
-    } else if (iconCode === '09n' || iconCode === '10n') {
-    return nightRain
-    }else if (iconCode === '11d') {
+    } else if (iconCode === "09d" || iconCode === "10d") {
+      return dayRain;
+    } else if (iconCode === "09n" || iconCode === "10n") {
+      return nightRain;
+    } else if (iconCode === "11d") {
       return dayThunder;
-    } else if (iconCode === '11n') {
+    } else if (iconCode === "11n") {
       return nightThunder;
-    
     } else {
       return `http://openweathermap.org/img/wn/${iconCode}.png`;
     }
   };
-  
 
   const formatTime = (timestamp) => {
     const date = new Date(timestamp * 1000);
@@ -156,16 +154,16 @@ const Home = () => {
       }`}
     >
       <Card className="w-100 searchCard mt-3">
-        <Row className="mb-3 mt-3 w-100">
+        <Row className="mt-3 w-100">
           <Col xs={12} sm={8}>
-            <Form className="d-flex p-1" onSubmit={handleSubmit}>
+            <Form className="d-flex p-1 mb-1" onSubmit={handleSubmit}>
               <InputGroup className="w-100">
                 <InputGroup.Text>
                   <MdSearch />
                 </InputGroup.Text>
                 <FormControl
                   type="search"
-                  placeholder="Search by City [Orlando] OR City, State Code, Country Code [Orlando, Fl, US]"
+                  placeholder="Search City..."
                   aria-label="Search"
                   value={tempSearchTerm}
                   onChange={handleInputChange}
@@ -209,6 +207,19 @@ const Home = () => {
             />
           </Col>
         </Row>
+        <Row>
+        <div className="help-search">
+        <a
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Search by city name(Dallas) OR city name, (state code if applicable), country code (Dallas, Tx, Us). Press ENTER to search."
+          data-tooltip-place="top"
+          style={{ cursor: 'pointer' }} // Add cursor style here for better UX
+        >
+          <IoIosHelpCircle size={30} />
+        </a>
+        <Tooltip id="my-tooltip" />
+      </div>
+        </Row>
       </Card>
 
       {weatherData && (
@@ -241,9 +252,9 @@ const Home = () => {
                 className={`h-100 mt-3 ${mode === "dark" ? "dark-card" : ""}`}
                 style={{ height: "300px", minWidth: "334px" }}
               >
-                <Card.Body className="d-flex flex-column justify-content-between p-0">
+                <Card.Body>
                   <div className="text-center">
-                    <Card.Title>
+                    <Card.Title className="pb-4">
                       Today in {weatherData.name}
                       <Card.Img
                         src={getWeatherIconUrl(weatherData.weather[0].icon)}
@@ -335,10 +346,13 @@ const Home = () => {
                   <Card.Title className="text-center clockText p-3">
                     {weatherData.name}, {weatherData.sys.country}
                   </Card.Title>
-                  <CountryFlag
-                    countryCode={weatherData.sys.country}
+
+                  <img
+                    src={`https://flagsapi.com/${weatherData.sys.country}/shiny/64.png`}
+                    alt={`Flag of ${weatherData.sys.country}`}
                     className="large-flag"
                   />
+
                   <Card.Text className="text-center getTime">
                     {getTime()}
                   </Card.Text>
@@ -413,9 +427,12 @@ const Home = () => {
               <span className={`${mode === "dark" ? "dark-text" : ""}`}>
                 {weatherData.coord.lat}, {weatherData.coord.lon}
               </span>
-              <CountryFlag
-                countryCode={weatherData.sys.country}
+
+              <img
+                src={`https://flagsapi.com/${weatherData.sys.country}/shiny/64.png`}
+                alt={`Flag of ${weatherData.sys.country}`}
                 className="small-flag"
+                style={{ width: "25px", height: "auto" }}
               />
             </Col>
           </Row>
